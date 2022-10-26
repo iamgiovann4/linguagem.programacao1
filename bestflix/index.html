@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>BestFlix - O streaming mais bonito que o Netflix</title>
+
+</head>
+<body onload="loadProductions()">
+    <header> 
+        <div class="container main-header">
+            <a href="/bestflix/">
+                <div id="logo">
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path d="M2 3.993A1 1 0 0 1 2.992 3h18.016c.548 0 .992.445.992.993v16.014a1 1 0 0 1-.992.993H2.992A.993.993 0 0 1 2 20.007V3.993zm8.622 4.422a.4.4 0 0 0-.622.332v6.506a.4.4 0 0 0 .622.332l4.879-3.252a.4.4 0 0 0 0-.666l-4.88-3.252z"/>
+                        </g>
+                    </svg>
+                    <h1><span>Best</span>Flix</h1>
+                </div>
+            </a>
+
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="/bestflix/" class="active">Home</a></li>
+                    <li><a href="/bestflix/">Movies</a></li>
+                    <li><a href="/bestflix/">Series</a></li>
+                </ul> <!--ul-->
+            </nav> <!--nav#main-nav-->
+        </div> <!--div.container main-header-->
+    </header> <!--header-->
+    <main>
+        <header id="content-header" class="container flex-sb">
+            <p>Home / Filmes / Teste</p>
+            <button onclick="showModal('#modal-cadastrar')">Adicionar Filme</button>
+        </header>
+        <section class="container">
+            <h1 class="section-title">Produções</h1>
+            <article id="productions">
+                <div class="card-movie">
+                </div>
+                <div class="card-movie">
+                </div>
+                <div class="card-movie">
+                </div>
+                <div class="card-movie">
+                </div>
+                <div class="card-movie">
+                </div>
+                <div class="card-movie">
+                </div>
+                <div class="card-movie">
+                </div>
+                <div class="card-movie">
+                </div>
+                <div class="card-movie">
+                </div>
+                
+                <!-- <div class="card-movie">
+                    <a href="filme">
+                        <div class="mask"></div>
+                        <img src="https://vizer.tv/content/movies/posterPt/342/24686.webp" alt="">
+                        <div>
+                            <h2>Homem-Aranha Longe de Casa</h2>
+                            <p>Aventura</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card-movie">
+                    <img src="https://vizer.tv/content/movies/posterPt/342/30412.webp" alt="">
+                    <div>
+                        <h2>Doutor Estranho no Multiverso da Loucura</h2>
+                        <p>Aventura</p>
+                    </div>
+                </div>
+
+                <div class="card-movie">
+                    <img src="https://vizer.tv/content/movies/posterPt/342/13510.webp" alt="">
+                    <div>
+                        <h2>Vingadores Guerra Infinita</h2>
+                        <p>Aventura</p>
+                    </div>
+                </div>
+                
+                <div class="card-movie">
+                    <img src="https://vizer.tv/content/movies/posterPt/342/20252.webp" alt="">
+                    <div>
+                        <h2>Homem de Ferro 2</h2>
+                        <p>Aventura</p>
+                    </div>
+                </div>
+
+                <div class="card-movie">
+                    <img src="https://vizer.tv/content/movies/posterPt/342/27820.webp" alt="">
+                    <div>
+                        <h2>Homem-Aranha Sem Volta para Casa</h2>
+                        <p>Aventura</p>
+                    </div>
+                </div>
+
+                <div class="card-movie">
+                    <img src="https://vizer.tv/content/movies/posterPt/342/25944.webp" alt="">
+                    <div>
+                        <h2>Capitão América Guerra Civil</h2>
+                        <p>Aventura</p>
+                    </div>
+                </div>
+
+                <div class="card-movie">
+                    <img src="https://vizer.tv/content/movies/posterPt/342/14876.webp" alt="">
+                    <div>
+                        <h2>Doutor Estranho</h2>
+                        <p>Aventura</p>
+                    </div>
+                </div>
+
+                <div class="card-movie">
+                    <img src="https://vizer.tv/content/movies/posterPt/342/13128.webp" alt="">
+                    <div>
+                        <h2>Vingadores Ultimato</h2>
+                        <p>Aventura</p>
+                    </div>
+                </div> -->
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>© Copyright 2022 BestFlix | Todos os direitos Reservados</p>
+        <p>Giovanna Siqueira Nicolau</p>
+    </footer>
+
+    <div class="modal" id="modal-cadastrar" onclick="hideModal('#modal-cadastrar', event)">
+        <div class="modal-body">
+            <h1>Cadastrar Produção</h1>
+
+            <form onsubmit="insert(event)"> <!--method="POST" action="backend/insert.php" -->
+                <label>Title:</label>
+                <input type="text" name="title">
+                <label>Description:</label>
+                <input type="text" name="description">
+                <label>Category:</label>
+                <input type="text" name="category">
+                <label>Cover:</label>
+                <input type="text" name="cover">
+                <label>Classification:</label>
+                <input type="text" name="classification">
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

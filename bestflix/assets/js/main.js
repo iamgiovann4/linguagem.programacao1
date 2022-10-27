@@ -54,8 +54,8 @@ async function loadProductions(){
                         </a>
                         <div>
                             <p>${film.categoria}</p>
-                            <img src="assets/img/trash-icon.svg" alt="Apagar">
-                            <img src="assets/img/edit-icon.svg" alt="Apagar">
+                            <img src="assets/img/trash-icon.svg" alt="Apagar" onclick="delete(${film.id})">
+                            <img src="assets/img/edit-icon.svg" alt="Apagar" onclick="edit(${film.id})">
                         </div>  
                     </div>
                 </div>

@@ -46,7 +46,7 @@ async function loadProductions(){
             <div class="card-movie">
                     <a href="filme">
                         <div class="mask"></div>
-                        <img src="${film.capa}" alt="${film.titulo}">
+                        <img src="${film.capa}" alt="${film.titulo}" style="min-height:353px">
                     </a>
                     <div>
                         <a href="filme">
@@ -55,7 +55,7 @@ async function loadProductions(){
                         <div>
                             <p>${film.categoria}</p>
                             <img src="assets/img/trash-icon.svg" alt="Apagar" onclick="deleteProduction(${film.id})">
-                            <img src="assets/img/edit-icon.svg" alt="Apagar" onclick="edit(${id})">
+                            <img src="assets/img/edit-icon.svg" alt="Apagar" onclick="edit(${film.id})">
                         </div>  
                     </div>
                 </div>

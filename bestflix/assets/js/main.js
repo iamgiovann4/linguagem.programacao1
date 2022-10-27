@@ -74,3 +74,23 @@ async function deleteProduction(id){
         loadProductions()
     }
 }
+
+async function loadProductionData(id){
+    const response = await fetch('backend/get-production-by-id.php?id='+id)
+    const result = await response.json()
+    if (result?.success) {
+        showModal("#modal-editar")
+        const title = document.querySelector('#modal-editar input[name=title]')
+        title.value = result.data.titulo
+        const description = document.querySelector('#modal-editar input[name=description]')
+        description.value = result.data.descricao
+        const category = document.querySelector('#modal-editar input[name=category]')
+        category.value = result.data.categoria
+        const cover = document.querySelector('#modal-editar input[name=cover]')
+        cover.value = result.data.capa
+        const classification = document.querySelector('#modal-editar input[name=classification]')
+        classification.value = result.data.classificacao
+        const id = document.querySelector('#modal-editar input[name=id]')
+        id.value = result.data.id
+    }
+}

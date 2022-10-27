@@ -54,8 +54,8 @@ async function loadProductions(){
                         </a>
                         <div>
                             <p>${film.categoria}</p>
-                            <img src="assets/img/trash-icon.svg" alt="Apagar" onclick="delete(${film.id})">
-                            <img src="assets/img/edit-icon.svg" alt="Apagar" onclick="edit(${film.id})">
+                            <img src="assets/img/trash-icon.svg" alt="Apagar" onclick="deleteProduction(${film.id})">
+                            <img src="assets/img/edit-icon.svg" alt="Apagar" onclick="edit(${id})">
                         </div>  
                     </div>
                 </div>
@@ -63,5 +63,14 @@ async function loadProductions(){
         })
     } else {
         alert('Erro ao carregar produções')
+    }
+}
+
+async function deleteProduction(id){
+    const response = await fetch('backend/delete.php?id='+id)
+    const result = await response.json()
+    if (result?.success) {
+        alert('Seu filme foi deletado com sucesso!')
+        loadProductions()
     }
 }

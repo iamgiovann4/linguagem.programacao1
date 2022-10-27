@@ -47,11 +47,17 @@ async function loadProductions(){
                     <a href="filme">
                         <div class="mask"></div>
                         <img src="${film.capa}" alt="${film.titulo}">
-                        <div>
-                            <h2>${film.titulo}</h2>
-                            <p>${film.categoria}</p>
-                        </div>
                     </a>
+                    <div>
+                        <a href="filme">
+                            <h2>${film.titulo}</h2>
+                        </a>
+                        <div>
+                            <p>${film.categoria}</p>
+                            <img src="assets/img/trash-icon.svg" alt="Apagar">
+                            <img src="assets/img/edit-icon.svg" alt="Apagar">
+                        </div>  
+                    </div>
                 </div>
             `
         })

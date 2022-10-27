@@ -1,8 +1,8 @@
 
 :root{
-    --primary: #ac7ef5;
-    --secundary: #8026ca;
-    --secundary-dark: #681c9b;
+    --primary: #fb9541;
+    --secundary: #f15b03;
+    --secundary-dark: #ff6810;
     --grey-0:#000;
     --grey-200:#363434;
     --grey-400:#4b4a4a;
@@ -167,18 +167,32 @@ body > header {
     opacity: 0.7;
 }
 
-#productions .card-movie div {
+#productions .card-movie > div {
     padding: 10px;
 }
 
-#productions .card-movie a div h2{
+#productions .card-movie div a  h2{
+    font-size: 22px;
+    margin: 0 0 5px 0;
+    color: var(--secundary-dark);
+}
+
+#productions .card-movie div div p {
     margin: 0 0 5px 0;
     color: var(--grey-1000);
 }
 
-#productions .card-movie div p {
-    margin: 0 0 5px 0;
-    color: var(--primary);
+#productions .card-movie div div img {
+    width: 22px;
+    height: 22px;
+}
+
+#productions .card-movie div div {
+    display: flex;
+}
+
+#productions .card-movie div div img:nth-child(2) {
+    margin-left: auto;
 }
 
 body > footer {

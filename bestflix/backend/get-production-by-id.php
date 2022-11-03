@@ -7,13 +7,14 @@
             $id = $_GET['id'];
         }
 
-        $stmt = $conn->prepare("DELETE * FROM producoes WHERE id = :id;");
+        $stmt = $conn->prepare("SELECT * FROM producoes WHERE id = :id;");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
         $count = $stmt->rowCount();
 
         if ($count == 1) {
+            $producao = $stmt->fetch(PDO::FETCH_ASSOC);
             $result["success"]["message"] = "Produção deletada com sucesso!";
             $result["data"] = $producao;
         } else {

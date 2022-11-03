@@ -20,7 +20,7 @@
 
         $stmt->execute();
 
-        $coun = $stmt->rowCount();
+        $count = $stmt->rowCount();
 
         if ($count == 1) {
             $result["success"]["message"] = "Editado com sucesso!";

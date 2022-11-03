@@ -44,22 +44,21 @@ async function loadProductions(){
         filmes.map((film) => {
             listProductions.innerHTML += `
             <div class="card-movie">
+                <a href="filme">
+                    <div class="mask"></div>
+                    <img src="${film.capa}" alt="${film.titulo}" style="min-height:353px">
+                </a>
+                <div>
                     <a href="filme">
-                        <div class="mask"></div>
-                        <img src="${film.capa}" alt="${film.titulo}" style="min-height:353px">
+                        <h2>${film.titulo}</h2>
                     </a>
                     <div>
-                        <a href="filme">
-                            <h2>${film.titulo}</h2>
-                        </a>
-                        <div>
-                            <p>${film.categoria}</p>
-                            <img src="assets/img/trash-icon.svg" alt="Apagar" onclick="deleteProduction(${film.id})">
-                            <img src="assets/img/edit-icon.svg" alt="Apagar" onclick="loadProductionData(${film.id})">
-                        </div>  
-                    </div>
+                        <p>${film.categoria}</p>
+                        <img src="assets/img/trash-icon.svg" alt="Apagar" onclick="deleteProduction(${film.id})">
+                        <img src="assets/img/edit-icon.svg" alt="Apagar" onclick="loadProductionData(${film.id})">
+                    </div>  
                 </div>
-            `
+            </div>`
         })
     } else {
         alert('Erro ao carregar produções')
@@ -93,4 +92,32 @@ async function loadProductionData(id){
         const id = document.querySelector('#modal-editar input[name=id]')
         id.value = result.data.id
     }
+}
+
+async function edit(event) {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const response = await fetch('backend/edit.php',{
+        method: 'POST', 
+        body: formData
+    })
+    const result = await response.json()
+    if (result?.success) {
+        closeAllModal()
+        alert('Seu filme '+result.data.title+' foi editado com sucesso!')
+        loadProductions()
+    }
+}
+
+function clearForm(idModal) {
+    const title = document.querySelector(`${idModal} input [name=title]`)
+    title.value=''
+    const description = document.querySelector(`${idModal} input [name=description]`)
+    description.value=''
+    const category = document.querySelector(`${idModal} input [name=category]`)
+    category.value=''
+    const cover = document.querySelector(`${idModal} input [name=cover]`)
+    cover.value=''
+    const classification = document.querySelector(`${idModal} input [name=classification]`)
+    classification.value=''
 }
